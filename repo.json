@@ -1,12 +1,11 @@
 [
   {
-    "AssemblyVersion": "0.0.0.2",
-
+    "AssemblyVersion": "0.0.0.4",
     "Author": "Youri",
-    "Name": "CardPls",
+    "Name": "CardsPls",
     "Punchline": "Highlighting of card status effects.",
     "Description": "Easy overview about who is currently buffed by cards",
-    "InternalName": "CardPls",
+    "InternalName": "CardsPls",
     "ApplicableVersion": "any",
     "repo_url": "https://github.com/yschuurmans/CardsPls",
     "Tags": [
