@@ -1,0 +1,28 @@
+[
+  {
+    "AssemblyVersion": "0.0.0.1",
+
+    "Author": "Youri",
+    "Name": "CardPls",
+    "Punchline": "Highlighting of card status effects.",
+    "Description": "Easy overview about who is currently buffed by cards",
+    "InternalName": "CardPls",
+    "ApplicableVersion": "any",
+    "repo_url": "https://github.com/yschuurmans/CardsPls",
+    "Tags": [
+      "Card",
+      "Highlight",
+      "Interface"
+    ],
+    "DalamudApiLevel": 8,
+    "IsHide": false,
+    "IsTestingExclusive": false,
+    "RepoUrl": "https://github.com/yschuurmans/CardsPls",
+    "DownloadLinkInstall": "https://github.com/yschuurmans/CardsPls/raw/master/latest.zip",
+    "DownloadLinkTesting": "https://github.com/yschuurmans/CardsPls/raw/master/latest.zip",
+    "DownloadLinkUpdate": "https://github.com/yschuurmans/CardsPls/raw/master/latest.zip",
+    "DownloadCount": 1,
+    "LastUpdated": "1642604760",
+    "Changelog": "Initial Release"
+  }
+]
