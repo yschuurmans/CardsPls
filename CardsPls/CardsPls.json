@@ -1,0 +1,15 @@
+﻿{
+  "Author": "Youri",
+  "Name": "CardPls",
+  "Punchline": "Highlighting of card status effects.",
+  "Description": "Easy overview about who is currently buffed by cards",
+  "InternalName": "CardPls",
+  "ApplicableVersion": "any",
+  "dalamud_api_level": 8,
+  "repo_url": "https://github.com/yschuurmans/CardsPls",
+  "Tags": [
+    "Card",
+    "Highlight",
+    "Interface"
+  ]
+}
