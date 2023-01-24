@@ -11,5 +11,6 @@
     "Card",
     "Highlight",
     "Interface"
-  ]
+  ],
+  "Changelog": "Moved to new Repo\n-Fixed bug in new resolver syntax \n-Updated to Api Level 8"
 }
