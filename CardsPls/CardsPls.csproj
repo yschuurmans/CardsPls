@@ -16,20 +16,7 @@
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<ProduceReferenceAssembly>false</ProduceReferenceAssembly>
 		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-		<OutputPath>$(AppData)\XIVLauncher\devPlugins\CardsPls\</OutputPath>
-	</PropertyGroup>
-
-	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-		<DebugSymbols>true</DebugSymbols>
-		<DebugType>full</DebugType>
-		<Optimize>false</Optimize>
-		<DefineConstants>DEBUG;TRACE</DefineConstants>
-	</PropertyGroup>
-
-	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-		<DebugType>pdbonly</DebugType>
-		<Optimize>true</Optimize>
-		<DefineConstants>TRACE</DefineConstants>
+		<OutputPath>bin\$(Configuration)\</OutputPath>
 	</PropertyGroup>
 
 	<PropertyGroup>
@@ -49,13 +36,6 @@
 	<PropertyGroup>
 		<DalamudLibPath>$(AppData)\XIVLauncher\addon\Hooks\dev\</DalamudLibPath>
 	</PropertyGroup>
-
-	<Target Name="PackagePlugin" AfterTargets="Build" Condition="'$(Configuration)' == 'Release'">
-		<DalamudPackager ProjectDir="$(ProjectDir)" OutputPath="$(OutputPath)" AssemblyName="CardsPls" MakeZip="true" />
-	</Target>
-	<Target Name="CopyDLLs" AfterTargets="PackagePlugin" Condition="'$(Configuration)' == 'Release'">
-		<Copy SourceFiles="$(TargetDir)CardsPls\latest.zip" DestinationFolder="$(SolutionDir)" />
-	</Target>
 
 	<ItemGroup>
 		<PackageReference Include="DalamudPackager" Version="2.1.10" />
