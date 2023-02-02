@@ -13,5 +13,9 @@
     "Highlight",
     "Interface"
   ],
+  "ImageUrls": [
+    "https://raw.githubusercontent.com/yschuurmans/CardsPls/master/res/images/image1.png",
+    "https://raw.githubusercontent.com/yschuurmans/CardsPls/master/res/images/image2.png"
+  ],
   "Changelog": "-Added in-world icons and text\n-Moved to new Repo\n-Fixed bug in new resolver syntax\n-Updated to Api Level 8"
 }
