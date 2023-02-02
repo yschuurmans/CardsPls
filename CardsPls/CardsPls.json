@@ -7,10 +7,11 @@
   "ApplicableVersion": "any",
   "dalamud_api_level": 8,
   "repo_url": "https://github.com/yschuurmans/CardsPls",
+  "IconUrl": "https://raw.githubusercontent.com/yschuurmans/CardsPls/master/res/icon.png",
   "Tags": [
     "Card",
     "Highlight",
     "Interface"
   ],
-  "Changelog": "Moved to new Repo\n-Fixed bug in new resolver syntax \n-Updated to Api Level 8"
+  "Changelog": "-Added in-world icons and text\n-Moved to new Repo\n-Fixed bug in new resolver syntax\n-Updated to Api Level 8"
 }
