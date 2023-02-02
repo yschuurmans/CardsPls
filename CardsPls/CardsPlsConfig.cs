@@ -31,7 +31,7 @@ namespace CardsPls
         public bool ShowGroupFrame { get; set; } = true;
         public bool HideSymbolsOnSelf { get; set; } = false;
 
-        public bool EnabledRaise { get; set; } = true;
+        public bool EnabledCards { get; set; } = true;
         public bool RestrictedJobs { get; set; } = false;
         public uint RaisedColor { get; set; } = DefaultRaisedColor;
         public uint CurrentlyRaisingColor { get; set; } = DefaultCurrentlyRaisingColor;
@@ -46,8 +46,8 @@ namespace CardsPls
         public uint DispellableColor { get; set; } = DefaultDispellableColor;
         public uint CurrentlyDispelColor { get; set; } = DefaultCurrentlyDispelColor;
         public uint InWorldBackgroundColorDispel { get; set; } = DefaultInWorldBackgroundColorDispel;
-        public bool ShowIconDispel { get; set; } = true;
-        public bool ShowInWorldTextDispel { get; set; } = true;
+        public bool ShowIconCard { get; set; } = true;
+        public bool ShowInWorldTextCard { get; set; } = true;
         public HashSet<ushort> UnmonitoredStatuses { get; set; } = new();
 
         public void Save()

@@ -81,8 +81,17 @@ namespace CardsPls.GUI
                 "Only display the card information when you are the job with cards.", CardsPls.Config.RestrictedJobs,
                 e => CardsPls.Config.RestrictedJobs = e);
 
+        private void ShowCardIconInWorld()
+            => DrawCheckbox("Show Card icon in world",
+                "Show card icon in the overworld under the player with the active \"Has Card\" effects.", CardsPls.Config.ShowIconCard,
+                e => CardsPls.Config.ShowIconCard = e);
+        private void ShowCardTextInWorld()
+            => DrawCheckbox("Show Card text in world",
+                "Show card text in the overworld under the player with the active \"Has Card\" effects.", CardsPls.Config.ShowInWorldTextCard,
+                e => CardsPls.Config.ShowInWorldTextCard = e);
+
         private void DrawTestModeCheckBox1()
-            => DrawCheckbox("Test Player Raised", "Should show the active \"Already Raised\" effects on the player character and party frames.",
+            => DrawCheckbox("Test Player Card", "Should show the active \"Has Card\" effects on the player character and party frames.",
                 ActorWatcher.TestMode == 1, e => ActorWatcher.TestMode = e ? 1 : 0);
 
 
@@ -240,6 +249,8 @@ namespace CardsPls.GUI
                     DrawHideSymbolsOnSelfCheckbox();
                     DrawShowGroupCheckbox();
                     DrawShowAllianceCheckbox();
+                    ShowCardIconInWorld();
+                    ShowCardTextInWorld();
                     DrawRectTypeSelector();
                     DrawScaleButton();
                     ImGui.Dummy(horizontalSpacing);

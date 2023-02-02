@@ -9,9 +9,7 @@ using Lumina.Data.Files;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.IO;
 using System.Numerics;
-using System.Reflection;
 
 namespace CardsPls.GUI
 {
@@ -52,13 +50,11 @@ namespace CardsPls.GUI
             Dalamud.PluginInterface.UiBuilder.Draw -= Draw;
         }
 
-        private readonly ImGuiScene.TextureWrap? _raiseIcon;
-        private readonly ImGuiScene.TextureWrap? _dispelIcon;
+        private readonly ImGuiScene.TextureWrap? _cardIcon;
         private static readonly Vector4 BlackColor = new(0, 0, 0, 1);
         private static readonly Vector4 WhiteColor = new(1, 1, 1, 1);
 
-        private bool _drawRaises = true;
-        private bool _drawDispels = true;
+        private bool _drawCards = true;
 
         private static TexFile? GetHdIcon(uint id)
         {
@@ -66,20 +62,9 @@ namespace CardsPls.GUI
             return Dalamud.GameData.GetFile<TexFile>(path);
         }
 
-        private static ImGuiScene.TextureWrap? BuildRaiseIcon()
+        private static ImGuiScene.TextureWrap? BuildCardIcon()
         {
-            const int raiseIconId = 10406;
-
-            var resource = Assembly.GetExecutingAssembly().GetManifestResourceStream("RezPls.RaiseIcon");
-            if (resource != null)
-            {
-                using MemoryStream ms = new();
-                resource.CopyTo(ms);
-                var bytes = ms.ToArray();
-                var wrap = Dalamud.PluginInterface.UiBuilder.LoadImageRaw(bytes, 48, 64, 4);
-                if (wrap != null)
-                    return wrap;
-            }
+            const int raiseIconId = 003102;
 
             var hd = GetHdIcon(raiseIconId);
             if (hd != null)
@@ -111,33 +96,24 @@ namespace CardsPls.GUI
         {
             _actorWatcher = actorWatcher;
             _hudManager = new HudManager();
-            _raiseIcon = BuildRaiseIcon();
-            _dispelIcon = BuildDispelIcon();
+            _cardIcon = BuildCardIcon();
         }
 
         public void Dispose()
         {
             Disable();
             _hudManager.Dispose();
-            _raiseIcon?.Dispose();
-            _dispelIcon?.Dispose();
+            _cardIcon?.Dispose();
         }
 
         private (string, bool, bool) GetText(string name, ActorState state)
         {
-            if (state.Caster == 0)
-            {
-                if (state.HasCard)
-                    return _drawRaises
-                        ? ("Has Card", CardsPls.Config.ShowIconDispel, CardsPls.Config.ShowInWorldTextDispel)
-                        : ("", false, false);
+            if (state.HasCard)
+                return _drawCards
+                    ? ("Has Card", CardsPls.Config.ShowIconCard, CardsPls.Config.ShowInWorldTextCard)
+                    : ("", false, false);
 
-                return ("", false, false);
-            }
-
-            return _drawDispels
-                ? ($"Cleanse: {name}", CardsPls.Config.ShowIconDispel, CardsPls.Config.ShowInWorldTextDispel)
-                : ("", false, false);
+            return ("", false, false);
         }
 
         public void DrawInWorld(Vector2 pos, string name, ActorState state)
@@ -146,7 +122,7 @@ namespace CardsPls.GUI
 
             if (drawIcon)
             {
-                var icon = _raiseIcon;
+                var icon = _cardIcon;
                 if (icon == null)
                     return;
 
@@ -305,7 +281,7 @@ namespace CardsPls.GUI
 
         public unsafe void DrawOnPartyFrames(ImDrawListPtr drawPtr)
         {
-            if (!_drawRaises && !_drawDispels)
+            if (!_drawCards)
                 return;
 
             var party = (AtkUnitBase*)Dalamud.GameGui.GetAddonByName("_PartyList", 1);
@@ -372,15 +348,14 @@ namespace CardsPls.GUI
             if (CardList.Count == 0)
                 return;
 
-            _drawRaises = CardsPls.Config.EnabledRaise;
-            _drawDispels = CardsPls.Config.EnabledDispel;
+            _drawCards = CardsPls.Config.EnabledCards;
 
             if (CardsPls.Config.RestrictedJobs)
             {
                 var (job, level) = _actorWatcher.CurrentPlayerJob();
 
                 if (job != Job.AST || level < 30)
-                    _drawRaises &= !CardsPls.Config.RestrictedJobs;
+                    _drawCards = false;
             }
 
             var drawPtrOpt = BeginRezRects();

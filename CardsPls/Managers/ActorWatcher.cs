@@ -128,7 +128,10 @@ public class ActorWatcher : IDisposable
             var hasCard = HasCard(player);
 
             if (hasCard)
+            {
+                ActorPositions[player.ObjectId] = player.Position;
                 CardList.Add(player.ObjectId, new ActorState(0, true));
+            }
         }
     }
 
@@ -152,7 +155,7 @@ public class ActorWatcher : IDisposable
         switch (TestMode)
         {
             case 1:
-                CardList[p.ObjectId] = new ActorState(0, false);
+                CardList[p.ObjectId] = new ActorState(0, true);
                 return;
             case 2:
                 CardList[p.ObjectId] = new ActorState(t.ObjectId, false);
