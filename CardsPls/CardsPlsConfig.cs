@@ -13,13 +13,8 @@ namespace CardsPls
 
     public class CardsPlsConfig : IPluginConfiguration
     {
-        public const uint DefaultRaisedColor = 0x60D2FF00;
-        public const uint DefaultCurrentlyRaisingColor = 0x6000FF00;
-        public const uint DefaultDoubleRaiseColor = 0x600000FF;
-        public const uint DefaultInWorldBackgroundColorRaise = 0xC8143C0A;
-        public const uint DefaultInWorldBackgroundColorDispel = 0xC8140A3C;
-        public const uint DefaultDispellableColor = 0x60FF00CA;
-        public const uint DefaultCurrentlyDispelColor = 0x60FFFFFF;
+        public const uint DefaultInWorldBackgroundColorCard = 0xC8143C0A;
+        public const uint DefaultCardColor = 0x2C00FF42;
 
 
         public int Version { get; set; } = 1;
@@ -33,19 +28,14 @@ namespace CardsPls
 
         public bool EnabledCards { get; set; } = true;
         public bool RestrictedJobs { get; set; } = false;
-        public uint RaisedColor { get; set; } = DefaultRaisedColor;
-        public uint CurrentlyRaisingColor { get; set; } = DefaultCurrentlyRaisingColor;
-        public uint InWorldBackgroundColor { get; set; } = DefaultInWorldBackgroundColorRaise;
+        public uint InWorldBackgroundColor { get; set; } = DefaultInWorldBackgroundColorCard;
         public bool ShowIcon { get; set; } = true;
         public bool ShowInWorldText { get; set; } = true;
-        public uint DoubleRaiseColor { get; set; } = DefaultDoubleRaiseColor;
 
 
         public bool EnabledDispel { get; set; } = true;
         public bool RestrictedJobsDispel { get; set; } = false;
-        public uint DispellableColor { get; set; } = DefaultDispellableColor;
-        public uint CurrentlyDispelColor { get; set; } = DefaultCurrentlyDispelColor;
-        public uint InWorldBackgroundColorDispel { get; set; } = DefaultInWorldBackgroundColorDispel;
+        public uint DispellableColor { get; set; } = DefaultCardColor;
         public bool ShowIconCard { get; set; } = true;
         public bool ShowInWorldTextCard { get; set; } = true;
         public HashSet<ushort> UnmonitoredStatuses { get; set; } = new();

@@ -163,32 +163,16 @@ namespace CardsPls.GUI
                 ImGui.SetTooltip(tooltip);
         }
 
-        private void DrawCurrentRaiseColorPicker()
-            => DrawColorPicker("Currently Being Raised",
-                "The highlight color for a player that is currently being raised by other players or only by yourself.",
-                CardsPls.Config.CurrentlyRaisingColor, CardsPlsConfig.DefaultCurrentlyRaisingColor, c => CardsPls.Config.CurrentlyRaisingColor = c);
-
         private void DrawInWorldBackgroundColorPicker()
             => DrawColorPicker("In World Background",
                 "The background color for text that is drawn into the world on corpses for raises.",
-                CardsPls.Config.InWorldBackgroundColor, CardsPlsConfig.DefaultInWorldBackgroundColorRaise,
+                CardsPls.Config.InWorldBackgroundColor, CardsPlsConfig.DefaultInWorldBackgroundColorCard,
                 c => CardsPls.Config.InWorldBackgroundColor = c);
 
-        private void DrawInWorldBackgroundColorPickerDispel()
-            => DrawColorPicker("In World Background (Cleanse)",
-                "The background color for text that is drawn into the world on characters that are afflicted by a watched detrimental status effect.",
-                CardsPls.Config.InWorldBackgroundColorDispel, CardsPlsConfig.DefaultInWorldBackgroundColorDispel,
-                c => CardsPls.Config.InWorldBackgroundColorDispel = c);
-
-        private void DrawDispellableColorPicker()
-            => DrawColorPicker("Has Monitored Status Effect",
+        private void DrawCardColorPicker()
+            => DrawColorPicker("Has Card Status Effect",
                 "The highlight color for a player that has any monitored detrimental status effect.",
-                CardsPls.Config.DispellableColor, CardsPlsConfig.DefaultDispellableColor, c => CardsPls.Config.DispellableColor = c);
-
-        private void DrawCurrentlyDispelledColorPicker()
-            => DrawColorPicker("Currently Being Cleansed",
-                "The highlight color for a player that is currently being cleansed by other players or only by yourself.",
-                CardsPls.Config.CurrentlyDispelColor, CardsPlsConfig.DefaultCurrentlyDispelColor, c => CardsPls.Config.CurrentlyDispelColor = c);
+                CardsPls.Config.DispellableColor, CardsPlsConfig.DefaultCardColor, c => CardsPls.Config.DispellableColor = c);
 
         private void DrawScaleButton()
         {
@@ -258,14 +242,8 @@ namespace CardsPls.GUI
 
                 if (ImGui.CollapsingHeader("Colors"))
                 {
-                    DrawCurrentRaiseColorPicker();
-                    ImGui.Dummy(horizontalSpacing);
-                    DrawDispellableColorPicker();
-                    DrawCurrentlyDispelledColorPicker();
-                    ImGui.Dummy(horizontalSpacing);
-                    ImGui.Dummy(horizontalSpacing);
+                    DrawCardColorPicker();
                     DrawInWorldBackgroundColorPicker();
-                    DrawInWorldBackgroundColorPickerDispel();
                     ImGui.Dummy(horizontalSpacing);
                 }
 
