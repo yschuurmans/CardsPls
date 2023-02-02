@@ -2,7 +2,7 @@
   "Author": "Youri",
   "Name": "CardsPls",
   "Punchline": "Highlighting of card status effects.",
-  "Description": "Easy overview about who is currently buffed by cards",
+  "Description": "A tool to make it easier to track who has already got a card buff. To prevent you from accidentally double-buffing those sneaky DPS's trying to keep all the buffs to themselves!",
   "InternalName": "CardsPls",
   "ApplicableVersion": "any",
   "dalamud_api_level": 8,
@@ -17,5 +17,5 @@
     "https://raw.githubusercontent.com/yschuurmans/CardsPls/master/res/images/image1.png",
     "https://raw.githubusercontent.com/yschuurmans/CardsPls/master/res/images/image2.png"
   ],
-  "Changelog": "-Added in-world icons and text\n-Moved to new Repo\n-Fixed bug in new resolver syntax\n-Updated to Api Level 8"
+  "Changelog": "- Fixed 'Restrict to Astrologian'\n- Added in-world icons and text\n- Moved to new Repo"
 }
