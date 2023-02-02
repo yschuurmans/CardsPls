@@ -4,7 +4,7 @@ A tool to track who has already got a card buff. To prevent you from accidentall
 ![](res/cardspls.gif)
 
 ## Warning!
-I created this plugin for personal use, because I wanted to know my profits and expenses while crafting and gathering in ffxiv. It never was intended as a public plugin, so don't _**expect**_ any help or assistance if something doesn't work. But since quite a few people have since found their way to this plugin somehow, I figured I might as well write a readme.
+I created this plugin for personal use. It never was intended as a public plugin, so don't _**expect**_ any help or assistance if something doesn't work. But since quite a few people have since found their way to this plugin somehow, I figured I might as well write a readme.
 
 ## Installation guide
 * **Be sure that "Enable in-game features" is on in the launcher settings to access in-game commands and features!**
