@@ -6,7 +6,7 @@
   "InternalName": "CardsPls",
   "ApplicableVersion": "any",
   "dalamud_api_level": 8,
-  "repo_url": "https://github.com/yschuurmans/CardsPls",
+  "RepoUrl": "https://github.com/yschuurmans/CardsPls",
   "IconUrl": "https://raw.githubusercontent.com/yschuurmans/CardsPls/master/res/icon.png",
   "Tags": [
     "Card",
