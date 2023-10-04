@@ -1,10 +1,10 @@
 # CardsPls
 A tool to track who has already got a card buff. To prevent you from accidentally double-buffing those sneaky DPS's trying to keep all the buffs to themselves!
 
-![](res/cardspls.gif)
+![](res/cardsplCardsPlss.gif)
 
 ## Warning!
-I created this plugin for personal use. It never was intended as a public plugin, so don't _**expect**_ any help or assistance if something doesn't work. But since quite a few people have since found their way to this plugin somehow, I figured I might as well write a readme.
+I initially created this plugin for personal use. It never was intended as a public plugin, so don't _**expect**_ any help or assistance if something doesn't work. But since quite a few people have since found their way to this plugin somehow, I figured I might as well write a readme.
 
 ## Installation guide
 * **Be sure that "Enable in-game features" is on in the launcher settings to access in-game commands and features!**
@@ -15,4 +15,4 @@ I created this plugin for personal use. It never was intended as a public plugin
 * Check the "Enabled" box for your new entry.
 * Click "Save and Close" at the bottom.
 * Open Dalamud's plugin menu by typing `/xlplugins` in the chat window and pressing enter.
-* Look for the "Money Tracker" plugin, and click on install.
+* Look for the "CardsPls" plugin, and click on install.
