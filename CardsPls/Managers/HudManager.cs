@@ -1,20 +1,20 @@
-﻿using System;
+﻿using CardsPls.SeFunctions;
 using Dalamud.Hooking;
 using Dalamud.Logging;
-using CardsPls.SeFunctions;
+using System;
 
 namespace CardsPls.Managers
 {
     public unsafe class HudManager : IDisposable
     {
-        private const int GroupMemberOffset    = 0x0CC8;
+        private const int GroupMemberOffset = 0x0CC8;
         private const int AllianceMemberOffset = 0x12C4;
-        private const int AllianceSizeOffset   = 0x1364;
-        private const int GroupMemberSize      = 0x20;
-        private const int GroupMemberIdOffset  = 0x18;
+        private const int AllianceSizeOffset = 0x1364;
+        private const int GroupMemberSize = 0x20;
+        private const int GroupMemberIdOffset = 0x18;
 
         private readonly Hook<UpdatePartyDelegate> _updatePartyHook;
-        private          IntPtr                    _hudAgentPtr = IntPtr.Zero;
+        private IntPtr _hudAgentPtr = IntPtr.Zero;
 
         public HudManager()
         {
@@ -81,7 +81,7 @@ namespace CardsPls.Managers
         };
 
         public int GroupSize
-            => *(int*) (_hudAgentPtr + AllianceSizeOffset);
+            => *(int*)(_hudAgentPtr + AllianceSizeOffset);
 
         public bool IsAlliance
             => GroupSize == 8;
@@ -110,7 +110,7 @@ namespace CardsPls.Managers
             }
 
             var count = numGroups * groupSize;
-            var pvp   = groupSize == 4 ? 1 : 0;
+            var pvp = groupSize == 4 ? 1 : 0;
             for (var i = 0; i < count; ++i)
             {
                 var id = *(uint*)(_hudAgentPtr + _idOffsets[pvp, i]);

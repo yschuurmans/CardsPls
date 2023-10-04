@@ -50,7 +50,7 @@ public class ActorWatcher : IDisposable
         _statusSet = statusSet;
         _territories = Dalamud.GameData.GetExcelSheet<TerritoryType>()!;
 
-        CheckPvP(null!, Dalamud.ClientState.TerritoryType);
+        CheckPvP(Dalamud.ClientState.TerritoryType);
     }
 
     public void Enable()
@@ -78,7 +78,7 @@ public class ActorWatcher : IDisposable
     public void Dispose()
         => Disable();
 
-    private void CheckPvP(object? _, ushort territoryId)
+    private void CheckPvP(ushort territoryId)
     {
         var row = _territories.GetRow(territoryId);
         _outsidePvP = !(row?.IsPvpZone ?? false);
@@ -96,8 +96,8 @@ public class ActorWatcher : IDisposable
     private static unsafe (uint, uint) GetCurrentCast(BattleChara player)
     {
         var battleChara = (FFXIVClientStructs.FFXIV.Client.Game.Character.BattleChara*)player.Address;
-        var cast = battleChara->SpellCastInfo;
-        if (cast.ActionType != ActionType.Spell)
+        ref var cast = ref *battleChara->GetCastInfo;
+        if (cast.ActionType != ActionType.Action)
             return (0, 0);
 
         return (cast.ActionID, cast.CastTargetID);

@@ -1,5 +1,5 @@
-using System;
 using Dalamud.Game;
+using System;
 
 namespace CardsPls.SeFunctions
 {
@@ -7,7 +7,7 @@ namespace CardsPls.SeFunctions
 
     public sealed class UpdateParty : SeFunctionBase<UpdatePartyDelegate>
     {
-        public UpdateParty(SigScanner sigScanner)
+        public UpdateParty(ISigScanner sigScanner)
             : base(sigScanner, "40 ?? 48 83 ?? ?? 48 8B ?? 48 ?? ?? ?? 48 ?? ?? ?? ?? ?? ?? 83 ?? ?? ?? ?? ?? ?? 74 ?? 48")
         { }
     }

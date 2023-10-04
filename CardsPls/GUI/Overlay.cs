@@ -1,8 +1,8 @@
 ﻿using CardsPls.Enums;
 using CardsPls.Managers;
-using Dalamud.Interface;
+using Dalamud.Interface.Internal;
+using Dalamud.Interface.Utility;
 using Dalamud.Logging;
-using Dalamud.Utility;
 using FFXIVClientStructs.FFXIV.Component.GUI;
 using ImGuiNET;
 using Lumina.Data.Files;
@@ -50,7 +50,7 @@ namespace CardsPls.GUI
             Dalamud.PluginInterface.UiBuilder.Draw -= Draw;
         }
 
-        private readonly ImGuiScene.TextureWrap? _cardIcon;
+        private readonly IDalamudTextureWrap? _cardIcon;
         private static readonly Vector4 BlackColor = new(0, 0, 0, 1);
         private static readonly Vector4 WhiteColor = new(1, 1, 1, 1);
 
@@ -62,35 +62,13 @@ namespace CardsPls.GUI
             return Dalamud.GameData.GetFile<TexFile>(path);
         }
 
-        private static ImGuiScene.TextureWrap? BuildCardIcon()
+        private static IDalamudTextureWrap? BuildCardIcon()
         {
             const int raiseIconId = 003102;
-
-            var hd = GetHdIcon(raiseIconId);
-            if (hd != null)
-                return Dalamud.PluginInterface.UiBuilder.LoadImageRaw(hd.GetRgbaImageData(), hd.Header.Width, hd.Header.Height, 4);
-
-            var texFile = Dalamud.GameData.GetIcon(raiseIconId);
-            return texFile == null
-                ? null
-                : Dalamud.PluginInterface.UiBuilder.LoadImageRaw(texFile.GetRgbaImageData(), texFile.Header.Width, texFile.Header.Height, 4);
+            return Dalamud.Textures.GetIcon(raiseIconId);
         }
 
         private static readonly Vector2 DefaultIconSize = new(48, 64);
-
-        private static ImGuiScene.TextureWrap? BuildDispelIcon()
-        {
-            const int dispelIconId = 15019;
-
-            var hd = GetHdIcon(dispelIconId);
-            if (hd != null)
-                return Dalamud.PluginInterface.UiBuilder.LoadImageRaw(hd.GetRgbaImageData(), hd.Header.Width, hd.Header.Height, 4);
-
-            var texFile = Dalamud.GameData.GetIcon(dispelIconId);
-            return texFile == null
-                ? null
-                : Dalamud.PluginInterface.UiBuilder.LoadImageRaw(texFile.GetRgbaImageData(), texFile.Header.Width, texFile.Header.Height, 4);
-        }
 
         public Overlay(ActorWatcher actorWatcher)
         {
