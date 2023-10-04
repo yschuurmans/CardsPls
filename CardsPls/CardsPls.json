@@ -5,7 +5,7 @@
   "Description": "A tool to make it easier to track who has already got a card buff. To prevent you from accidentally double-buffing those sneaky DPS's trying to keep all the buffs to themselves!",
   "InternalName": "CardsPls",
   "ApplicableVersion": "any",
-  "dalamud_api_level": 8,
+  "dalamud_api_level": 9,
   "RepoUrl": "https://github.com/yschuurmans/CardsPls",
   "IconUrl": "https://raw.githubusercontent.com/yschuurmans/CardsPls/master/res/icon.png",
   "Tags": [
